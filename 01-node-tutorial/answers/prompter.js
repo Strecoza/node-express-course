@@ -28,11 +28,12 @@ let item = "Enter something below.";
 const form = () => {
   return `
   <body>
-  <p>${item}</p>
-  <form method="POST">
-  <input name="item"></input>
-  <button type="submit">Submit</button>
-  </form>
+    <p>${item}</p>
+    <form method="POST">
+      <label for = "item"> Item: </label>
+      <input name="item" placeholder = "Type text.."></input>
+      <button type="submit">Submit</button>
+    </form>
   </body>
   `;
 };
