@@ -1,0 +1,12 @@
+1. The asyncWrapper middleware was created to handlle errors in async.route handlers. We don't need to repeat use try{}catch{} and it makes code more readably.
+
+2.Answer:
+const getTask = asyncWrapper(async (req, res, next) => {  
+  const { id: taskID } = req.params;  
+  const task = await Task.findOne({ _id: taskID });  
+  if (!task) {  
+    // your code here
+     return next(createCustomError(`No task with ID: ${taskID}`, 404)) 
+  }  
+  res.status(200).json({ task });  
+});  
